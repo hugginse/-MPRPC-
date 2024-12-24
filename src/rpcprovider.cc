@@ -1,6 +1,7 @@
 #include "rpcprovider.h"
 #include <google/protobuf/descriptor.h>
 #include "rpcheader.pb.h"
+#include "logger.h"
 
 /*
 service_name => service描述
@@ -22,7 +23,8 @@ void RpcProvider::NotifyService(google::protobuf::Service *service)
     // 获取服务对象的方法的数量
     int methodCnt = pserviceDesc->method_count();
 
-    std::cout << "serviec_name: " << service_name << std::endl;
+    // std::cout << "serviec_name: " << service_name << std::endl;
+    LOG_INFO("service_name: %s", service_name.c_str());
 
     for (int i = 0; i < methodCnt; ++i)
     {
@@ -30,6 +32,9 @@ void RpcProvider::NotifyService(google::protobuf::Service *service)
         const google::protobuf::MethodDescriptor *pmethodDesc = pserviceDesc->method(i);
         std::string method_name = pmethodDesc->name();
         service_info.m_method_Map.insert({method_name, pmethodDesc});
+
+        // std::cout << "method_name: " << method_name << std::endl; 
+        LOG_INFO("method_name: %s", method_name.c_str());
     }
 
     service_info.m_service = service;
@@ -56,6 +61,7 @@ void RpcProvider::Run()
     server.setThreadNum(4);
 
     std::cout << "RpcProvider start service at ip: " << ip << " port: " << port << std::endl;
+    // LOG_INFO("RpcProvider start service at ip: %s port: %s", ip.c_str(), std::to_string(port).c_str());
 
     // 启动网路服务
     server.start();
@@ -111,7 +117,8 @@ void RpcProvider::OnMessage(const muduo::net::TcpConnectionPtr &conn,
     else
     {
         // 数据头反序列化失败
-        std::cout << "rpc_header_str: " << rpc_header_str << " parse error!" << std::endl;
+        // std::cout << "rpc_header_str: " << rpc_header_str << " parse error!" << std::endl;
+        LOG_ERR("rpc_header_str: %s parse error!", rpc_header_str.c_str());
         return;
     }
 
@@ -131,14 +138,16 @@ void RpcProvider::OnMessage(const muduo::net::TcpConnectionPtr &conn,
     auto it = m_serviceMap.find(service_name);
     if (it == m_serviceMap.end())
     {
-        std::cout << service_name << " is not exits!" << std::endl;
+        // std::cout << service_name << " is not exits!" << std::endl;
+        LOG_ERR("%s is not exits!", service_name.c_str());
         return;
     }
 
     auto mit = it->second.m_method_Map.find(method_name);
     if (mit == it->second.m_method_Map.end())
     {
-        std::cout << method_name << " is not exits!" << std::endl;
+        // std::cout << method_name << " is not exits!" << std::endl;
+        LOG_ERR("%s is not exits!", method_name.c_str());
         return;
     }
 
@@ -149,7 +158,8 @@ void RpcProvider::OnMessage(const muduo::net::TcpConnectionPtr &conn,
     google::protobuf::Message *request = service->GetRequestPrototype(method).New();
     if (!request->ParseFromString(args_str))
     {
-        std::cout << "request parse error, content: " << args_str << std::endl;
+        // std::cout << "request parse error, content: " << args_str << std::endl;
+        LOG_ERR("request parse error, content: %s", args_str.c_str());
         return;
     }
     google::protobuf::Message *response = service->GetResponsePrototype(method).New();
@@ -183,7 +193,8 @@ void RpcProvider::sendRpcResponse(const muduo::net::TcpConnectionPtr &conn, goog
     }
     else
     {
-        std::cout << "serialize response_str error!" << std::endl;
+        // std::cout << "serialize response_str error!" << std::endl;
+        LOG_ERR("serialize response_str error!");
     }
     conn->shutdown();           // 模拟http的短链接服务，由rpcprovider主动断开连接
 
