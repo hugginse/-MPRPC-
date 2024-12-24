@@ -2,6 +2,8 @@
 #define _MPRPCAPPLICATION_H_
 
 #include "mprpcconfig.h"
+#include "mprpcchannel.h"
+#include "mprpccontroller.h"
 
 // mprpc框架的基础类
 class MprpcApplication
