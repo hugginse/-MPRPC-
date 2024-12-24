@@ -1,0 +1,47 @@
+[
+{
+  "directory": "/home/huggins/code/RPC-with-Moduo-and-Protobuf/build/src",
+  "command": "/usr/bin/g++  -I/home/huggins/code/RPC-with-Moduo-and-Protobuf/src/include -I/home/huggins/code/RPC-with-Moduo-and-Protobuf/example -g -o CMakeFiles/mprpc.dir/mprpcapplication.cc.o -c /home/huggins/code/RPC-with-Moduo-and-Protobuf/src/mprpcapplication.cc",
+  "file": "/home/huggins/code/RPC-with-Moduo-and-Protobuf/src/mprpcapplication.cc"
+},
+{
+  "directory": "/home/huggins/code/RPC-with-Moduo-and-Protobuf/build/src",
+  "command": "/usr/bin/g++  -I/home/huggins/code/RPC-with-Moduo-and-Protobuf/src/include -I/home/huggins/code/RPC-with-Moduo-and-Protobuf/example -g -o CMakeFiles/mprpc.dir/mprpcconfig.cc.o -c /home/huggins/code/RPC-with-Moduo-and-Protobuf/src/mprpcconfig.cc",
+  "file": "/home/huggins/code/RPC-with-Moduo-and-Protobuf/src/mprpcconfig.cc"
+},
+{
+  "directory": "/home/huggins/code/RPC-with-Moduo-and-Protobuf/build/src",
+  "command": "/usr/bin/g++  -I/home/huggins/code/RPC-with-Moduo-and-Protobuf/src/include -I/home/huggins/code/RPC-with-Moduo-and-Protobuf/example -g -o CMakeFiles/mprpc.dir/rpcheader.pb.cc.o -c /home/huggins/code/RPC-with-Moduo-and-Protobuf/src/rpcheader.pb.cc",
+  "file": "/home/huggins/code/RPC-with-Moduo-and-Protobuf/src/rpcheader.pb.cc"
+},
+{
+  "directory": "/home/huggins/code/RPC-with-Moduo-and-Protobuf/build/src",
+  "command": "/usr/bin/g++  -I/home/huggins/code/RPC-with-Moduo-and-Protobuf/src/include -I/home/huggins/code/RPC-with-Moduo-and-Protobuf/example -g -o CMakeFiles/mprpc.dir/rpcprovider.cc.o -c /home/huggins/code/RPC-with-Moduo-and-Protobuf/src/rpcprovider.cc",
+  "file": "/home/huggins/code/RPC-with-Moduo-and-Protobuf/src/rpcprovider.cc"
+},
+{
+  "directory": "/home/huggins/code/RPC-with-Moduo-and-Protobuf/build/src",
+  "command": "/usr/bin/g++  -I/home/huggins/code/RPC-with-Moduo-and-Protobuf/src/include -I/home/huggins/code/RPC-with-Moduo-and-Protobuf/example -g -o CMakeFiles/mprpc.dir/mprpcchannel.cc.o -c /home/huggins/code/RPC-with-Moduo-and-Protobuf/src/mprpcchannel.cc",
+  "file": "/home/huggins/code/RPC-with-Moduo-and-Protobuf/src/mprpcchannel.cc"
+},
+{
+  "directory": "/home/huggins/code/RPC-with-Moduo-and-Protobuf/build/example/callee",
+  "command": "/usr/bin/g++  -I/home/huggins/code/RPC-with-Moduo-and-Protobuf/src/include -I/home/huggins/code/RPC-with-Moduo-and-Protobuf/example -g -o CMakeFiles/provider.dir/friendservice.cc.o -c /home/huggins/code/RPC-with-Moduo-and-Protobuf/example/callee/friendservice.cc",
+  "file": "/home/huggins/code/RPC-with-Moduo-and-Protobuf/example/callee/friendservice.cc"
+},
+{
+  "directory": "/home/huggins/code/RPC-with-Moduo-and-Protobuf/build/example/callee",
+  "command": "/usr/bin/g++  -I/home/huggins/code/RPC-with-Moduo-and-Protobuf/src/include -I/home/huggins/code/RPC-with-Moduo-and-Protobuf/example -g -o CMakeFiles/provider.dir/__/friend.pb.cc.o -c /home/huggins/code/RPC-with-Moduo-and-Protobuf/example/friend.pb.cc",
+  "file": "/home/huggins/code/RPC-with-Moduo-and-Protobuf/example/friend.pb.cc"
+},
+{
+  "directory": "/home/huggins/code/RPC-with-Moduo-and-Protobuf/build/example/caller",
+  "command": "/usr/bin/g++  -I/home/huggins/code/RPC-with-Moduo-and-Protobuf/src/include -I/home/huggins/code/RPC-with-Moduo-and-Protobuf/example -g -o CMakeFiles/consumer.dir/callfriendservice.cc.o -c /home/huggins/code/RPC-with-Moduo-and-Protobuf/example/caller/callfriendservice.cc",
+  "file": "/home/huggins/code/RPC-with-Moduo-and-Protobuf/example/caller/callfriendservice.cc"
+},
+{
+  "directory": "/home/huggins/code/RPC-with-Moduo-and-Protobuf/build/example/caller",
+  "command": "/usr/bin/g++  -I/home/huggins/code/RPC-with-Moduo-and-Protobuf/src/include -I/home/huggins/code/RPC-with-Moduo-and-Protobuf/example -g -o CMakeFiles/consumer.dir/__/friend.pb.cc.o -c /home/huggins/code/RPC-with-Moduo-and-Protobuf/example/friend.pb.cc",
+  "file": "/home/huggins/code/RPC-with-Moduo-and-Protobuf/example/friend.pb.cc"
+}
+]
