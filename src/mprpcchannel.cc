@@ -9,6 +9,7 @@
 #include <errno.h>
 #include "mprpcapplication.h"
 #include "mprpccontroller.h"
+#include "zookeeperutil.h"
 
 /*
 header_size + service_name method_name args_size + args
@@ -82,8 +83,27 @@ void MprpcChannel::CallMethod(const google::protobuf::MethodDescriptor* method,
     }
 
     // 读取配置文件rpcserver的信息
-    std::string ip = MprpcApplication::GetInstance().getConfig().Load("rpcserverip");
-    uint16_t port = atoi(MprpcApplication::GetInstance().getConfig().Load("rpcserverport").c_str());
+    // std::string ip = MprpcApplication::GetInstance().getConfig().Load("rpcserverip");
+    // uint16_t port = atoi(MprpcApplication::GetInstance().getConfig().Load("rpcserverport").c_str());
+    ZkClient zkCli;
+    zkCli.Start();
+    // /UserServiceRpc/Login
+    std::string methdo_path = "/" + service_name + "/" + method_name;
+    // 127.0.0.1：8000
+    std::string host_data = zkCli.GetData(methdo_path.c_str());
+    if (host_data == "")
+    {
+        controller->SetFailed(methdo_path + " is not exits!");
+        return;
+    }
+    int idx = host_data.find(":");
+    if (idx == -1)
+    {
+        controller->SetFailed(methdo_path + " address is invalid!");
+        return;
+    }
+    std::string ip = host_data.substr(0, idx);
+    uint16_t port = atoi(host_data.substr(idx + 1, host_data.size() - idx).c_str());
 
     struct sockaddr_in server_addr;
     server_addr.sin_family = AF_INET;

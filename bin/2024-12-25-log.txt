@@ -1,3 +1,15 @@
  -
 0:24:22 => [info] service_name: FriendServiceRpc
 0:24:22 => [info] method_name: GetFriendsList
+17:22:9 => [info] service_name: FriendServiceRpc
+17:22:9 => [info] method_name: GetFriendsList
+18:12:19 => [info] service_name: FriendServiceRpc
+18:12:19 => [info] method_name: GetFriendsList
+18:17:39 => [info] service_name: FriendServiceRpc
+18:17:39 => [info] method_name: GetFriendsList
+20:22:58 => [info] service_name: FriendServiceRpc
+20:22:58 => [info] method_name: GetFriendsList
+20:37:40 => [info] service_name: FriendServiceRpc
+20:37:40 => [info] method_name: GetFriendsList
+20:40:6 => [info] service_name: FriendServiceRpc
+20:40:6 => [info] method_name: GetFriendsList
